@@ -2,25 +2,6 @@
 
 @section('content')
 <div class="container">
-
-
-    <!--    <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Dashboard</div>
-    
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-    
-                        You are logged in!
-                    </div>
-                </div>
-            </div>
-        </div>-->
     <div class="row">
         <div class="col-4 ">
             <img src="{{asset('/photo/logo.jpg')}}" class="logo_body">
@@ -31,7 +12,14 @@
             <div class="d-flex justify-content-between align-items-baseline">
                 <h1>  {{ $user->username }} </h1>
                 <a href="/p/create">Add New Post</a>
+                
             </div>
+            
+         
+             <a href="/profile/{{$user->id}}/edit">Edit Profile</a>
+          
+            
+            
             <div class="d-flex">
                 <div class="pr-5"><strong>{{$user->posts->count() }}</strong> Post</div>
                 <div class="pr-5"><strong>20K</strong> Followers</div>
