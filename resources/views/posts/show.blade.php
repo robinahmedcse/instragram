@@ -1,4 +1,4 @@
-<div>@extends('layouts.app')
+ @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -8,8 +8,24 @@
         </div>
         <div class="col-4">
             <div>
-                <h3>{{$posts->user->username}}</h3>
-                <p>{{$posts->caption}}</p>
+                <div class="d-flex">
+                    <div class="pr-3">
+                        <img src="/storage/{{$posts->user->profile->image}}"
+                             class="rounded-circle w-100" style="max-width: 50px;">
+                    </div>
+                    <div>
+                        <div class="font-weight-bold"><a href="/profile/{{$posts->user->id}}">
+                                <span class="text-dark"> {{$posts->user->username}}</span>
+                            </a>
+                            <a href="#" class="pl-3">Follow</a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                
+                <p>  <span class="font-weight-bold"><a href="/profile/{{$posts->user->id}}">
+                   <span class="text-dark"> {{$posts->user->username}}</span>
+                        </a></span> {{$posts->caption}}</p>
             </div>
         </div>
     </div>
