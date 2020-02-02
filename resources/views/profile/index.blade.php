@@ -4,13 +4,18 @@
 <div class="container">
     <div class="row">
         <div class="col-4 ">
-            <img src="/storage/{{$user->profile->image }}" class="logo_body w-100 rounded-circle">
+            <img src="{{$user->profile->profileImage() }}" class="logo_body w-80 rounded-circle">
 
 
         </div>
         <div class="col-8 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
-                <h1>  {{ $user->username }} </h1>
+                <div class="d-flex align-items-center pb-3">
+                    <div class="h4">  {{ $user->username }} </div>
+                    <button class="btn btn-primary ml-4">Follow</button>
+                </div>
+                
+                
                 <a href="/p/create">Add New Post</a>
                 
             </div>
