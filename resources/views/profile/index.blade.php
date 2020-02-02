@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-4 ">
-            <img src="{{asset('/photo/logo.jpg')}}" class="logo_body">
+            <img src="/storage/{{$user->profile->image }}" class="logo_body w-100 rounded-circle">
 
 
         </div>

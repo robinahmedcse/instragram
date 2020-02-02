@@ -27,15 +27,27 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     
-     public function profile() {
+       public function profile() {
         return $this->hasOne(Profile::class);  
     }
     
+    
+    protected static function boot() {
+        parent::boot();
+        
+        static::created(function($user){
+            $user->profile()->create([
+                'title' => $user->username,
+            ]);
+        });
+    }
     
        public function posts() {
         //return $this->hasMany(Post::class);  
              return $this->hasMany(Post::class)->orderBy('created_at', 'DESC');
     }
+    
+  
     
     
     

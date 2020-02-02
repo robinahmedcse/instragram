@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Intervention\Image\Facades\Image;
 
 class ProfilesController extends Controller
 {
     
-    
-    
+
    public function index($user)
     {
        $getUser=  User::findOrFail($user);
@@ -48,6 +48,9 @@ class ProfilesController extends Controller
          $image=Image::make(public_path("storage/{$imagePath}"))->fit(1000,1000);
          $image->save();
      }
+     
+    // dd($data);
+  //  dd(array_merge($data,['image' => $imagePath] ));
      
      auth()->user()->profile->update(array_merge($data, 
                  ['image' => $imagePath]
